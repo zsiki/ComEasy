@@ -27,7 +27,7 @@ You can make a shortcut to start ComEasy.
 Select **Commands/Settings...** from the menu.
 Set up the serial communication parameters (port, baudrate, parity, stop bits, 
 etc.). You can save settings into a file and load later. There are some
-sample settings in the com\_set directory.
+sample settings in the `com\_set` directory.
 
 Select **Commands/Download...** from the menu. Enter an output file and press
 **Save** button.
@@ -35,11 +35,11 @@ Select **Commands/Download...** from the menu. Enter an output file and press
 Start to send data to serial line on your instrument. The downloaded data is
 shown in the program window and saved to the output file.
 
-# Tested instruments
-Leica GIF 10
-Leica TC(R) 300/400i/600/700
-Geodimeter 510
-Trimble 5500/M3
-Sokkia Set4C
-TopCon GTS 210
+## Tested instruments
+* Leica GIF 10
+* Leica TC(R) 300/400/600/700
+* Geodimeter 510
+* Trimble 5500/M3
+* Sokkia Set4C
+* TopCon GTS 210
 
