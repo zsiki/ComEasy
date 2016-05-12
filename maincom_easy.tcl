@@ -1,6 +1,6 @@
 #!/bin/sh
 # the next line restarts using wish \
-exec prowish83 "$0" "$@"
+exec wish "$0" "$@"
 
 # Copied from geo_easy.tcl!
 #------------------------------------------------------------------------------
