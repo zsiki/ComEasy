@@ -46,5 +46,5 @@ shown in the program window and saved to the output file.
 * TopCon GTS 210
 * Spectra Precision Focus 10 (lucaarcteam)
 
-Another description by Luca Bezzi: http://arc-team-open-research.blogspot.hu/2016/05/comeasy-new-tool-for-total-station.html
+Another description and video by Luca Bezzi: http://arc-team-open-research.blogspot.hu/2016/05/comeasy-new-tool-for-total-station.html
 
