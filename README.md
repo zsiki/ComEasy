@@ -8,7 +8,7 @@ Install Tcl/Tk on your machine from http://www.tcl.tk/
 Download ComEasy sources from https://github.com/zsiki/ComEasy into an empty
 directory.
 
-On Linux change the *maincom\_easy.tcl* executable:
+On Linux change the *maincom\_easy.tcl* to be executable:
 `chmod +x maincom_easy.tcl`
 
 ## Usage
@@ -20,7 +20,7 @@ Start the ComEasy program:
 
 or
 
-`wish maincom_easy.tcl` (Windows)
+`wish maincom_easy.tcl` (Windows and Linux)
 
 You can make a shortcut to start ComEasy.
 
@@ -42,4 +42,7 @@ shown in the program window and saved to the output file.
 * Trimble 5500/M3
 * Sokkia Set4C
 * TopCon GTS 210
+* Spectra Precision Focus 10 (lucaarcteam)
+
+Another description by Luca Bezzi: http://arc-team-open-research.blogspot.hu/2016/05/comeasy-new-tool-for-total-station.html
 
