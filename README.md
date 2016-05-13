@@ -9,7 +9,7 @@ Download ComEasy sources from https://github.com/zsiki/ComEasy into an empty
 directory.
 
 On Linux change the *maincom\_easy.tcl* executable:
-`chmod +x maincom\_easy.tcl`
+`chmod +x maincom_easy.tcl`
 
 ## Usage
 Connect your totalstation to your computer through a serial line (RS-232).
