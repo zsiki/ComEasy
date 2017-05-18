@@ -185,34 +185,26 @@ proc OpenCom {} {
 	global actPars
 
 	CloseCom
-	if {[catch {set com [open $actPars(port) RDWR]} msg] == 1} {
+	if {[regexp -nocase "com\[0-9\]+" $actPars(port)]} {
+	# windows
+		set sp [format {\\.\%s} $actPars(port)]
+	} else {
+		set sp $actPars(port)
+	}
+	if {[catch {set com [open $sp RDWR]} msg] == 1} {
 		tk_dialog .msg $comEasyMsg(error) "$comEasyMsg(comOpen)\n$msg" \
 			error 0 OK
 		return 1
 	}
-	if {[regexp "com\[0-9\]:" $actPars(port)]} {
-	# windows
-		if {[catch {fconfigure $com \
+	if {[catch {fconfigure $com \
 		-mode $actPars(baud),$actPars(parity),$actPars(data),$actPars(stop) \
-				-blocking $actPars(blocking) \
-				-translation $actPars(translation) \
-				-buffering $actPars(buffering) \
-				-buffersize $actPars(buffsize)} msg] == 1} {
+		-blocking $actPars(blocking) \
+		-translation $actPars(translation) \
+		-buffering $actPars(buffering) \
+		-buffersize $actPars(buffsize)} msg] == 1} {
 			tk_dialog .msg $comEasyMsg(error) \
 				"$comEasyMsg(comConfigure)\n$msg" error 0 OK
 			return 1
-		}
-	} else {
-	# unix -mode nem mukodik
-		if {[catch {fconfigure $com \
-				-blocking $actPars(blocking) \
-				-translation $actPars(translation) \
-				-buffering $actPars(buffering) \
-				-buffersize $actPars(buffsize)} msg] == 1} {
-			tk_dialog .msg $comEasyMsg(error) \
-				"$comEasyMsg(comConfigure)\n$msg" error 0 OK
-			return 1
-		}
 	}
 	fileevent $com readable [list ReadCom $com]
 	if {[string length $actPars(query)]} {
@@ -291,13 +283,6 @@ proc ShowPars {} {
 	if {! [info exists actPars(dir)]} {
 		set actPars(dir) ""
 	}
-# OBSOLATE
-#	if {[string length $actPars(dir)]} {
-#		$ctopw.menu.file entryconfigure 3 -state normal	
-#	} else {
-#		$ctopw.menu.file entryconfigure 3 -state disabled
-#	}
-# /OBSOLATE
 }
 
 #
@@ -321,7 +306,7 @@ proc DefComParams {} {
 	if {$tcl_platform(platform) == "unix"} {
 		set actPars(port) "/dev/ttyUSB0"
 	} else {
-		set actPars(port) "com1:"
+		set actPars(port) "com1"
 	}
 	set actPars(baud) 9600
 	set actPars(parity) "n"
@@ -390,18 +375,19 @@ proc ComParsDlg {} {
 	set portlist ""
 	for {set i 0} {$i < 25} {incr i} {
 		if {$tcl_platform(platform) == "unix"} {
-			if {[catch {set tmp [open /dev/ttyS$i RDWR]}] == 0} {
+			if {[catch {set tmp [open /dev/ttyS$i RDWR]} msg] == 0} {
 				close $tmp
 				lappend portlist /dev/ttyS$i
 			}
-			if {[catch {set tmp [open /dev/ttyUSB$i RDWR]}] == 0} {
+			if {[catch {set tmp [open /dev/ttyUSB$i RDWR]} msg] == 0} {
 				close $tmp
 				lappend portlist /dev/ttyUSB$i
 			}
 		} else {
-			if {[catch {set tmp [open com${i}: RDWR]}] == 0} {
+			set sp [format {\\.\com%d} $i]
+			if {[catch {set tmp [open $sp RDWR]} msg] == 0} {
 				close $tmp
-				lappend portlist com${i}:
+				lappend portlist com${i}
 			}
 		}
 	}
