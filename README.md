@@ -45,6 +45,7 @@ shown in the program window and saved to the output file.
 * Sokkia Set4C
 * TopCon GTS 210
 * Spectra Precision Focus 10 (lucaarcteam)
+* Focus 6w
 
 Another description and video by Luca Bezzi: http://arc-team-open-research.blogspot.hu/2016/05/comeasy-new-tool-for-total-station.html
 
