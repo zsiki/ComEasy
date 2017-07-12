@@ -1,5 +1,5 @@
 # ComEasy
-Serial communication program used for total station - pc communication.
+Serial communication program used for total station - pc data exchange.
 (c) Zoltan Siki 
 
 ## Installation
@@ -47,5 +47,5 @@ shown in the program window and saved to the output file.
 * Spectra Precision Focus 10 (lucaarcteam)
 * Focus 6w
 
-Another description and video by Luca Bezzi: http://arc-team-open-research.blogspot.hu/2016/05/comeasy-new-tool-for-total-station.html
+Another description and video is available by Luca Bezzi: http://arc-team-open-research.blogspot.hu/2016/05/comeasy-new-tool-for-total-station.html
 
