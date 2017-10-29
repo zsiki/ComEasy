@@ -1,6 +1,9 @@
 # ComEasy
 Serial communication program used for total station - pc data exchange.
-(c) Zoltan Siki 
+(c) Zoltan Siki
+
+This project has been integrated into GeoEasy project,further development will be made there.
+https://github.com/zsiki/GeoEasy
 
 ## Installation
 Install Tcl/Tk on your machine from http://www.tcl.tk/
